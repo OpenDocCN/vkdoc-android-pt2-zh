@@ -1,0 +1,194 @@
+<html xml:lang="en-gb">
+<head>
+
+<link rel="stylesheet" type="text/css" href="9781430238522.css"/>
+<link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="page-template.xpgt"/>
+</head>
+<body>
+
+<p/>
+<h2 class="chapnum"><a id="page_1"/> <a id="ch1"/> C H A P T E R 1</h2>
+<h2 class="chaptitle"><b>设置Android 3.0 Java开发</b></h2>
+<p class="normal">这本书教你为Android 3.0平板电脑创建自己的游戏。在阅读并完成其示例后，您将对许多新型平板电脑的传感器、触摸屏、网络功能和处理能力有所了解。这听起来令人生畏吗？它不是。不用去做开发定位商店或赠送优惠券的乏味的企业应用程序的苦差事，你将知道如何制作有趣和吸引人的游戏。如果你过去做过一些游戏开发，你可能会惊喜地发现，与传统的PC和主机游戏开发相比，Android系统让这个过程变得如此简单。</p>
+<p class="indent">虽然没有任何一本书可以让你从新手变成游戏编程大师，但本书中介绍的基础知识可以让你将2D游戏中的任何想法变成现实。这本书使编程尽可能简单，以便专注于游戏开发中更具创造性的方面。</p>
+<h3 class="h3"><a id="what_is_android"/>安卓是什么？</h3>
+<p class="normal">Android非常特别，当你开始编程时，你会对它更加欣赏。许多手机制造商开发运行Android操作系统的平板电脑的运动为你将要制作的游戏创造了一个巨大的市场。这一节给你一个Android的功能和历史的纲要。</p>
+<h4 class="h4">Android的开端</h4>
+<p class="normal">2003年，Android作为一家硅谷的小型创业公司成立，旨在为智能手机创造一个更具互动性和更有帮助的界面。谷歌在2005年迅速收购了该公司，作为其进军手机市场的一部分。在谷歌收购它之后，第一个Android操作系统很快在2007年发布。在随后的几年里，Android经历了多次修改(超过七次重大变化)，使其成为智能手机的主要操作系统之一，有人说Android拥有近50%的移动设备。</p>
+<p class="indent">Android的修订对于理解开发如何工作非常重要。谷歌努力确保其Android版本的向后兼容性；然而，应用程序通常被设计为适用于选定的几个Android版本，以保证最佳的性能和用户体验。名为Froyo的版本仍然是最受开发者欢迎的，但随着平板电脑等更现代的设备需要更强大的操作系统，后来的版本也越来越受欢迎。</p>
+<p class="indent">下面的Android版本列表，以及它们当前的市场份额，说明了哪些版本仍然受欢迎，因此是开发者感兴趣的。谷歌给每个版本起的创意名就在版号旁边。开发者经常使用这些名字，而不仅仅是数字。请记住，除了Android 3.0，所有版本的操作系统都是专为手机设计的:</p>
+<blockquote><ul> <li>1.5 Android cupcakes (2.3%)</li> <li>Android 1.6 donuts (3.0%)</li> <li>是阿云2.1闪电(24.5%)</li><li>Android 2.2 Froyo (65.9%)</li> <li>Android 2.3 gingerbread (1.0%)</li> <li>Android 2.3 gingerbread (3.0%)</li> <li>Android 3.0 Honeycomb (0.3%)</li></ul></blockquote>
+<p class="indent">如果您有兴趣查看各种版本的当前市场份额，请前往<code><a href="http://developer.android.com/resources/dashboard/platform-versions.html">http://developer.android.com/resources/dashboard/platform-versions.html</a></code>。</p>
+<p class="indent">在检查了这个列表后，许多人会说你应该为Froyo制作游戏，因为它在市场份额上比其他版本领先很多。Froyo流行的原因是它安装在许多更简单的旧手机上，这些手机只能通过复杂的过程获得更新版本。随着新版本占据中心舞台，这些设备将慢慢变得无关紧要。某种程度上，为广大用户做游戏是有意义的；然而，每天都有新用户购买使用最新版本的更现代的手机。此外，也许最重要的一点是，成千上万的应用程序可以在Froyo版本上玩，而且越来越难脱颖而出。</p>
+<p class="indent">也就是说，这本书教你为最新版(蜂巢)设计游戏有两个原因。首先，Honeycomb是唯一针对平板电脑优化的版本，比任何智能手机都更具沉浸感和乐趣。其次，随着越来越多的公司发布可以与苹果iPad竞争的平板电脑，Android平板电脑正在以巨大的速度增长。随着webOS的失败，Android和iOS是平板电脑市场唯一的竞争者。微软也推出了自己的操作系统，但还没有获得很大的市场份额。谷歌经常被引用的关于每天有50万台Android设备注册的声明让你感受到这个市场扩张的速度有多快。</p>
+<h4 class="h4"><a id="android_30_features"/>安卓3.0的特性</h4>
+<p class="normal">Honeycomb相对于之前的Android版本是一个巨大的进步。Android 3.0旨在利用更大的屏幕和更强大的处理器，让开发人员扩展他们通常适度的智能手机游戏。许多新功能都是用户界面的变化，使用户可以通过比智能手机屏幕大几倍的屏幕访问桌面。例如，典型的手机有两到三英寸的屏幕，而平板电脑拥有令人印象深刻的九到十英寸的屏幕。这些更新很方便；然而，游戏开发商更关注更新更快的图形渲染和操作系统的新传感器和网络能力。</p>
+<p class="indent">并非所有游戏都使用所有这些功能，但在设计独特的游戏时，考虑它们的重要性是至关重要的。更大的屏幕本身就是一个值得注意的更新。高分辨率屏幕需要可缩放且视觉上吸引人的艺术品。很多安卓平板都登陆了1280 × 800作为屏幕尺寸。这与许多计算机屏幕仍在使用的分辨率相当。在这种情况下，图形必须接近计算机游戏中使用的图像。</p>
+<p class="indent"><a href="#tab_1_1">表1-1 </a>列出了游戏开发者特别感兴趣的Android 3.0的主要变化。</p>
+<p class="normal"><a id="page_3"/><a id="tab_1_1"/>T2】</p>
+<p class="indent">在整本书中，我给出了如何充分利用Android平板电脑新功能的建议。如果你想把自己制作游戏作为一种爱好，那么请留意我的笔记，看看哪里可以免费获得高质量的声音和图像。我为我的游戏制作音乐和图形的工具也将在第二章中详细解释。</p>
+<p class="indent">我希望在熟悉Android之后，你已经准备好开始使用了。不过，请仔细阅读下一部分，以确保你拥有为Android开发游戏的适当技能和硬件。</p>
+<h3 class="h3"><a id="what_you_need_to_create_android_games"/>制作安卓游戏需要什么</h3>
+<p class="normal">那么，如何才能成为一名Android游戏开发者呢？让我们来看看你需要从本书中获得最多的技能，以及你需要通过它的例子来工作的系统。</p>
+<h4 class="h4"><a id="what_you_need_to_know"/>你需要知道的事情</h4>
+<p class="normal">安卓游戏编程有多难？这真的取决于你对Java和Android操作系统的经验。如果你有扎实的Java知识，那么这本书对你来说再合适不过了。如果你以前为Android写过代码，那么你可能不会被这里的任何代码所挑战，你可以自由地享受你的体验。在继续之前，请仔细阅读这一部分，这样您就能确切地知道您需要什么。</p>
+<p class="indent">一般来说，有兴趣学习在安卓系统中为平板电脑创建游戏的人来自三种不同的背景。每一个背景都为你准备了本书中的例子，但是它们都需要一个稍微不同的方法。</p>
+<p class="indent">如果你既懂Java又懂Android，你就可以开始了。这里的代码类似于您以前看到的，但是它侧重于图形、游戏循环和对用户输入的快速响应，这些您可能没有处理过。不管你做过什么，这本书帮助你掌握平板电脑游戏的创作。</p>
+<p class="indent">也许你对Java很熟悉，但是你从来没有用过Android。这很好。阅读示例和代码不会有太大的困难。请记住，对于任何新的环境和API，您都应该定期查找提供的函数和类。熟悉Android需要时间，但努力是值得的。</p>
+<p class="indent">你可能从来没有用Java编写过一个<code>if</code>语句，更不用说用Android了。如果是这样的话，你还是可以用这本书，但是你得弄一本Java入门。我强烈推荐杰夫·弗里森(Apress，2010)的《学习Android开发的Java》。当你有了Java的参考资料，熟悉Java的工作原理，然后直接进入本文。你在学习过程中学习语言。</p>
+<p class="indent">理解XML是有益的；然而，XML相对容易理解，您应该可以轻松掌握本书中对它的基本用法。资质不在话下，是时候考虑游戏创作使用的环境了。</p>
+<h4 class="h4"><a id="what_you_need_for_a_platform"/>您需要什么样的平台</h4>
+<p class="normal">是时候动手了，看看开发Android游戏到底需要什么。幸运的是，你不应该买任何软件！唯一的费用是当你准备把你的游戏放到安卓市场时，要交25美元的注册费。首先，检查以确保您的计算机支持Android开发:</p>
+<blockquote><ul> <li>Windows XP (32 bit), Vista (32 bit or 64 bit) or Windows 7 (32 bit or 64 bit)</li> <li>Mac x 10.5.8 or later (x86 only)</li><li>Linux(在Ubuntu Linux、Lucid Lynx上测试)</li> </ul></blockquote>
+<p class="indent">这个列表是根据Android自己的系统需求编制的。查看<code><a href="http://developer.android.com/sdk/requirements.html">http://developer.android.com/sdk/requirements.html</a></code>了解最低系统标准的最新变化。</p>
+<p class="indent">虽然满足最低要求的系统可以让你创建Android应用程序，但是测试你的程序可能会相当慢。一般来说，如果你能在电脑上玩现代电子游戏，那你应该没问题。但是，如果你有更慢的机器，不要绝望；你完全有能力编写Android游戏，但你应该在Android平板电脑上测试它们，而不是在电脑上的模拟器上。</p>
+<p class="indent">你不需要一台Android平板电脑来完成本书中的任何练习或程序，但在真实设备上测试你的创作是无可替代的。随着市场上平板电脑供过于求，更便宜的型号会让你花费大约500到700美元。如果你像我一样发现游戏编程令人上瘾，那么这些投资是非常值得的。摩托罗拉和三星生产一些最受欢迎的平板电脑；寻找他们的产品，以了解Android平板电脑方面的顶级产品。</p>
+<p class="indent">如果你对自己的技能很有信心，并且已经决定在哪台机器上投入游戏开发，那么你已经准备好获得工具并配置你的开发环境了。</p>
+<h3 class="h3"><a id="setting_up_your_android_tablet_programming_environment"/> <a id="page_5"/>设置您的Android平板电脑编程环境</h3>
+<p class="normal">您就要进入有趣的部分了，但首先您必须确保您的计算机设置正确。您必须为您的工作下载并安装三个软件包:</p>
+<blockquote><ul> <li>Java development kit (JDK)</li> <li>Eclipse, also known as Integrated Development Environment (IDE)</li><li>Android Java SDK</li></ul></blockquote>
+<p class="indent">如果您是Java开发人员，那么您可能有最新版本的JDK，甚至可能安装了Eclipse。在这种情况下，请跳到以下说明的Android SDK部分。如果您遇到问题，请仔细阅读前两节，因为您可能使用了错误的JDK或Eclipse版本。</p>
+<p class="indent">在接下来的几节中，您将逐步安装这些软件包。完成后，您就可以创建您的第一个Android平板电脑程序了。在你准备好出发之前，整个过程不会超过20分钟。</p>
+<h4 class="h4"><a id="installing_the_java_jdk"/>安装Java JDK</h4>
+<p class="normal">第一步是为您的机器下载并安装最新版本的JDK。以下是如何:</p>
+<blockquote><ol> <li>To find the JDK required by your system, please go to <code><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">www.oracle.com/technetwork/java/javase/downloads/index.html</a></code>. You need JDK to allow you to use Java language on your computer. Find the big Java icon in the upper left corner of the page and select the JDK link, as shown in <a href="#fig_1_1"> in Figure 1-1. This link will take you to the JDK SE download page. <img src="images/0101.jpg" alt="images"/> <p class="margin"> <a id="page_6"/> <i> <b> Figure 1-1. </b> Java download options page </i> </p> </a></li> <li>在Java SE下载页面的下载选项卡上，如图<a href="#fig_1_2">图1-2 </a>所示，接受许可协议，选择适合您操作系统的软件包，点击链接下载。<img src="images/0102.jpg" alt="images"/> <p class="margin"> <a id="page_7"/> <i> <b>图1-2。</b>许可协议和爪哇版本选择</i> </p> </li> <li>After the file is downloaded, run the installer. On some computers, the installer will start automatically. If this doesn't happen, please find the folder where you downloaded the files and sort the folders by the modification date. The last file is this installer. Double-click it, and you can start.</li> <li>A welcome dialog box of Java wizard installation appears, as shown in figure <a href="#fig_1_3"> and figure 1-3 </a>. Click the next button and follow the wizard prompts to complete the installation.</li> </ol></blockquote>
+
+
+<img src="images/0103.jpg" alt="images"/>
+
+
+<p class="fcaption"><a id="page_8"/> <i> <b>图1-3。</b> JDK安装向导</i></p>
+<p class="indent">现在您已经准备好设置Eclipse，这是您在本书中用来构建游戏的开发环境。如果没有Eclipse，您将被迫使用命令行编译代码。开发环境为您节省了大量时间。</p>
+<h4 class="h4"><a id="installing_the_eclipse_ide"/>安装Eclipse IDE</h4>
+<p class="normal">安装JDK后，您现在可以设置您的开发人员环境。您将使用Eclipse，这是一个免费的软件包，为Java和Android开发人员提供了很多强大的支持。请遵循以下步骤:</p>
+<blockquote><ol> <li>To find the Eclipse package for your system, please go to <code><a href="http://www.eclipse.org/downloads/">www.eclipse.org/downloads/</a></code>. On the Eclipse download page, as shown in <a href="#fig_1_4"> in Figure 1-4, use the small drop-down menu to match your operating system. Then select Eclipse IDE for Java Developers and click the link of the required version of the operating system. You will be taken to a download page. <img src="images/0104.jpg" alt="images"/> <p class="margin"> <a id="page_9"/> <i> <b> Figure 1-4. </b> Eclipse Download Options Page </i> </p> </a></li> <li>Download the compressed folder containing the selected version and unzip it. Click Install executable file. During the installation process, make sure that you select the check box to create Eclipse shortcuts on your desktop, so that we can access Eclipse conveniently in the future.</li> <li>After installation, you can start Eclipse by shortcut. You should see something similar to <a href="#fig_1_5"> Figure 1-5 </a>. This means that everything is working.</li> </ol></blockquote>
+
+
+<img src="images/0105.jpg" alt="images"/>
+
+
+<p class="fcaption"><a id="page_10"/> <i> <b>图1-5。</b>日食开始了</i></p>
+<p class="indent">安装好开发平台后，您就可以添加Android SDK了，它为您提供了构建游戏所需的库和工具。到目前为止，您只研究了基础知识，包括Java语言和开发环境。</p>
+<h4 class="h4"><a id="installing_the_android_sdk"/>安装Android SDK</h4>
+<p class="normal">您的平台需要的最后一个软件包是Google的Android SDK:</p>
+<blockquote><ol> <li>要找到您的系统需要的软件包，进入<code><a href="http://developer.android.com/sdk/index.html">http://developer.android.com/sdk/index.html</a></code>，如图<a href="#fig_1_6">图1-6 </a>所示，点击链接选择为您的操作系统制作的Android SDK软件包。完成后，相应的文件开始下载。<img src="images/0106.jpg" alt="images"/><p class="margin"><a id="page_11"/><i>T10】图1-6。 Android SDK下载页面</i> </p> </li> <li>下载完文件夹或安装程序后，找到文件双击运行。出现Android SDK工具安装向导的欢迎页面，如<a href="#fig_1_7">图1-7 </a>所示。<img src="images/0107.jpg" alt="images"/><p class="margin"><a id="page_12"/><i>T22】图1-7。 Android SDK安装向导</i> </p> <p class="normal"> <img src="images/square.jpg" alt="images"/> <b>注意</b>记住你安装软件开发工具包(Software Development Kit)的位置。我更喜欢用<code>C:\Android\android_sdk\</code>.无论您使用的是哪种操作系统,请记下它的安装位置。当我们将它连接到黯然失色时,我们将在接下来的步骤中需要它的位置</p> </li> <li>点击下一步按钮，按照向导的提示安装SDK。最终，你看到了最后一页。应选中启动SDK管理器复选框，如图<a href="#fig_1_8">图1-8 </a>所示。这将导致SDK管理器在安装完成后立即启动。<img src="images/0108.jpg" alt="images"/> <p class="margin"> <a id="page_13"/> <i> <b>图1-8。</b> Android SDK工具安装向导结束</i> </p> </li> <li>当Android SDK和AVD管理器对话框打开后，如图<a href="#fig_1_9">图1-9 </a>所示，点击左侧导航面板中的可用软件包链接，然后点击安装选定的按钮。这一步接受并安装Google推荐的游戏默认Android包。如果不安装这些，您将无法使用一些工具和示例应用程序。<img src="images/0109.jpg" alt="images"/><p class="margin"><a id="page_14"/><i>T51】图1-9。 Android SDK管理器。请注意所选的默认包点击安装选定项时，会出现如图1-10 所示的对话框，显示安装进度(这可能需要几分钟)。<img src="images/0110.jpg" alt="images"/> </i></p><p class="margin"> <i> <b>图1-10。</b>包和档案的安装</i> </p> </li> </ol></blockquote>
+<p class="indent">现在你有了Java语言、开发环境和Android工具。剩下的唯一步骤是将所有这些部分集成在一起。</p>
+<h4 class="h4">向Eclipse添加Android工具和虚拟设备</h4>
+<p class="normal">你要做的最后一项工作是让Eclipse与新的Android工具和程序相适应。这样做可以让您将代码输入到Eclipse中，然后从Eclipse本身进行测试。否则，你必须保存你的代码，并使用不同的程序来测试应用程序。请遵循以下步骤:</p>
+<blockquote><ol> <li>要用将要使用的Android工具安装你的Eclipse，打开Eclipse并选择帮助安装新软件。出现Eclipse安装对话框，如图<a href="#fig_1_11">图1-11 </a>所示。每次需要向Eclipse添加更多功能时，都要返回到这个安装对话框。<img src="images/0111.jpg" alt="images"/> <p class="margin"> <i> <b>图【月食】1-11日的安装对话框.</b> </i> </p> </li> <li>你首先需要让Eclipse知道在哪里寻找你想要添加的工具。在安装屏幕上，单击右上角的添加按钮。添加存储库对话框打开，如图<a href="#fig_1_12">图1-12 </a>所示。<img src="images/0112.jpg" alt="images"/> <p class="margin"> <a id="page_16"/> <i> <b>图1-12。</b>用于向黯然失色添加机器人工具的名称和位置框</i> </p> </li> <li>Do the following:<ol style="list-style-type:lower-alpha"> <li>In the name box, type <b> Android tools </b>, which is the name of the tool you will use to refer to this step.</li> <li>For location, enter the URL <b> <code><a href="https://dl-ssl.google.com/android/eclipse/">https://dl-ssl.google.com/android/eclipse/</a></code> </b>, which is the location of the tool you are adding.</li> </ol> </li> <li>完成后，点击确定按钮，返回到图1-13 所示的安装对话框。<img src="images/0113.jpg" alt="images"/> <p class="margin"> <a id="page_17"/> <i> <b>图1-13。</b>开发者工具软件</i> </p> </li> <li>Select the developer tools check box and follow the prompts to install the update. Doing so can increase the tools needed for Android tablet development. Restart Eclipse when prompted by the dialog box.</li> <li>在Eclipse中，选择窗口首选项。打开侧窗格上的Android选项卡。你的屏幕应该看起来像<a href="#fig_1_14">图1-14 </a>。您将把Eclipse指向您的Android SDK的安装。这允许您在Eclipse中编译程序。<img src="images/0114.jpg" alt="images"/> <p class="margin"> <a id="page_18"/> <i> <b>图1-14。</b>月食中机器人的配置选项在SDK位置字段中输入你下载Android SDK的准确位置名称。我的例子使用了<code>C:\Android\Android-sdk</code>。</i></p></li> </ol></blockquote>
+<p class="indent">应用这些更改后，您就完成了设置过程！</p>
+<p class="indent">从现在开始，你要专注于实际的Android应用程序的结构，以及如何实现你对游戏的愿景。这种背景使你很容易在游戏中尝试各种不同的工具和技术。能够快速地改变你的代码并看到你努力的结果，在你的努力中是无价的。</p>
+<h3 class="h3">测试你的工具</h3>
+<p class="normal">到目前为止，你可能正在急切地期待一些有形的Android游戏。这一节讲述了如何使用你已经安装的工具来使用Android内置的示例程序库。它还介绍了设计应用程序外观的基础知识。未来的章节将对这些项目进行扩展，以制作一个全功能的游戏。</p>
+<p class="indent">你的每一款Android游戏都将被开发成一个Eclipse项目，在一个位置保存所有的图像、声音和代码。随着您的深入，您将对Eclipse有更好的理解。了解资源的存储以及如何在这种环境中访问文件是您需要掌握的一项关键技能。</p>
+<p class="indent">即使对于最高级的程序员来说，示例程序也是一个极好的资源。你编写的任何游戏所需要的大部分基本功能已经在这些程序中的一个或多个中实现了，而且很可能是免费的。网上粗略看一下，可以为你以后节省几十个小时的工作时间。可悲的是，大多数应用程序都是为旧版本的Android编写的，因此它们在大型平板电脑屏幕上显得非常小。作为补偿，您可以将他们的一些代码合并到您的项目中，但自己处理图形。</p>
+<p class="indent">在本节的其余部分，您将逐步了解为平板电脑创建Android游戏的步骤。至少从头开始一次是很重要的，这样你才能看到一个游戏最基本的框架。首先用Eclipse创建第一个Android项目。</p>
+<h4 class="h4"><a id="creating_an_android_project"/>创建Android项目</h4>
+<p class="normal">构建任何Android游戏的第一步是创建一个Eclipse项目:</p>
+<blockquote><ol> <li>在Eclipse中，选择文件新建项目，选择Android文件夹下的Android项目，进入新建Android项目界面，如图<a href="#fig_1_15">图1-15 </a>所示。<img src="images/0115.jpg" alt="images"/><p class="margin"><a id="page_20"/><i>T10】图1-15。填写好的新机器人项目表</i> </p> </li> <li><a id="page_21"/> Fill in the missing information:<ol style="list-style-type:lower-alpha"> <li>Type the name <b> firstapp </b> or any project name you want.</li> <li>Keep the default values of other parts unchanged until you reach the construction target part. Here, you can decide which version of Android you want your application to be suitable for. Choose Android 3.0 because you want your application to run on the latest tablet. When you test your game, this name becomes crucial, and you want to make sure that it works well on the analog tablet, not on the small screen of the mobile phone.</li> <li>应用程序名称一般与项目名称相同。重新键入<b> FirstApp </b>或您为项目使用的名称。Java开发人员对Package Name字段很熟悉，但是如果您不熟悉它，可能会感到困惑。这里你声明名字为<b> <code>com.gameproject.firstapp</code> </b>。<p class="normal">包是爪哇组织代码的一种方式,使得使用以前编写的文件变得容易。你可以在<code><a href="http://java.sun.com/docs/books/jls/third_edition/html/packages.html">http://java.sun.com/docs/books/jls/third_edition/html/packages.html</a></code>阅读更多关于爪哇包的内容,但是这对你来说并不重要。当您准备好稍后与世界分享您的应用程序时,您可以再次访问此页面.将</p> </li> <li>写成<b> Main </b>作为你希望项目创建的活动。<p class="normal">活动对于机器人程序来说是必不可少的,稍后我会更深入地讨论它们。现在,把这个活动看作是应用程序的主要功能。它被调用来设置游戏,然后通过处理输入和指导精灵的移动来运行游戏。活动应该根据它们的角色来命名,所以最初的活动通常被称为主要、主要活动或类似的名称.</p> </li> <li>用编号<b> 11 </b>填写Min SDK版本字段。这意味着Android要求设备运行Android版本11才能正常运行你的游戏。<p class="normal">你可能很好奇为什么我会突然跳到数字11,当我之前谈到安卓3.0是最新的更新时。嗯，安卓有一个疯狂的版本命名系统。3.0级指的是平台版本,它遵循正常的软件惯例,小的更新增加十分之一位,大的修订得到一个新的数字。为了保持一致，安卓为每个平台版本关联了一个代码安卓3.0。被分配了11,而安卓2.3.3得到了10。因为您的项目是为最新版本的机器人设计的,所以您键入<b> 11 </b>作为最低软件开发工具包(Software Development Kit)版本</p> </li> </ol> </li> <li><a href="#fig_1_15"> Figure 1-15 </a> shows a completed new Android project form. Check your name to make sure it is the same, because the remaining code and examples use the name provided in this walkthrough. When you're done, click Finish. You will see a blank Eclipse screen with a project folder on the far left.</li> </ol></blockquote>
+<p class="indent">现在让我们看看Eclipse创建的文件和代码。</p>
+<h4 class="h4"><a id="exploring_the_android_project_in_eclipse"/> <a id="page_22"/>探索Eclipse中的Android项目</h4>
+<p class="normal">要查看项目创建了哪些文件，请展开<code>FirstApp</code>文件夹。然后进一步将<code>src</code>扩展到<code>com.gameproject.firstapp</code>到<code>Main.java</code>。双击<code>Main.java</code>在Eclipse编辑器中显示文件(中间的大查看窗格)。这是你游戏的核心；然而，目前它是一个基本的骨架。您看到的代码应该类似于清单1-1 中的代码。</p>
+
+<p class="listcaption"><i> <b>清单1-1。</b>T4<code>Main.java</code></i></p>
+<code>package com.gameproject.firstapp;<br/>
+<br/>
+import android.app.Activity;<br/>
+import android.os.Bundle;<br/>
+<br/>
+public class Main extends Activity {<br/>
+    /** Called when the activity is first created. */<br/>
+    @Override<br/>
+    public void onCreate(Bundle savedInstanceState) {<br/>
+        super.onCreate(savedInstanceState);<br/>
+        setContentView(R.layout.main);<br/>
+    }<br/>
+}</code>
+
+<p class="indent">清单1-1 中的代码创建了一个新的类，然后让这个类更新用户看到的视图。前三行定义包，然后导入应用程序需要使用的类。注意，这两个导入都引用了属于Android SDK的类。当你制作更多的功能游戏时，你将导入许多其他的类，让你执行各种各样的动作。</p>
+<p class="indent">让我们一行一行地仔细看看清单中的代码:</p>
+
+<code>package com.gameproject.firstapp</code>
+
+<blockquote>
+<p class="blockquote">这个简单的介绍指定这个文件是<code>firstapp</code>包的一部分。包是Java对同一程序的文件进行分组的方式。</p>
+</blockquote>
+
+<code>import android.app.Activity;<br/>
+import android.os.Bundle;</code>
+
+<blockquote>
+<p class="blockquote">Import语句向项目中添加功能。实际上，这些是您想要使用的其他包。<code>Activity</code>包括处理应用程序运行的方法。<code>Bundle</code>是为您的应用程序存储信息的一种特定方式。</p>
+</blockquote>
+
+<code>public class Main extends Activity</code>
+
+<blockquote>
+<p class="blockquote">这里，类<code>Main</code>被赋予了Android类<code>Activity</code>拥有的所有函数和变量。每当一个类扩展另一个类时，新的类继承或接收对其他类的所有功能的访问。</p>
+</blockquote>
+
+<code>public void onCreate(Bundle savedInstanceState)</code>
+
+<blockquote>
+<p class="blockquote">这里定义的函数实际上来自于<code>Activity</code>类。它处理应用程序启动时必须完成的所有过程。<code>Bundle</code>参数<code>savedInstanceState</code>保存应用程序的先前状态。第一次启动app的时候是<code>null</code>。</p>
+</blockquote>
+
+<code>super.onCreate(savedInstanceState);</code>
+
+<blockquote>
+<p class="blockquote"><a id="page_23"/>调用<code>Activity</code>类的<code>onCreate</code>方法。这将导致程序启动应用程序。注意函数前面的关键字<code>super</code>。<code>super</code>关键字意味着程序正在从Android SDK调用原来的<code>onCreate</code>方法，而不是您之前在代码行中创建的新的<code>onCreate</code>方法。</p>
+</blockquote>
+
+<code>SetContentView(R.layout.main);</code>
+
+<blockquote>
+<p class="blockquote">最后，应用程序通过将Android屏幕设置为一个XML文件来执行第一个真正的任务。<code>R</code>是表示<i>资源</i>的标识符，<code>layout</code>指定资源的类型，<code>main</code>表示文件的名称。很快您就可以编辑<code>main.xml</code>文件来改变程序的外观。</p>
+</blockquote>
+<p class="indent">是时候运行这个程序了，看看它能做什么。不过，在此之前，您必须创建一个虚拟的Android设备来测试它。如果你有一台运行Android 3.0的Android平板电脑，你可以直接在上面测试程序。要了解如何做到这一点，请前往<a href="11.html#appa">附录A </a>。</p>
+<h4 class="h4"><a id="creating_a_virtual_android_device"/>创建虚拟Android设备</h4>
+<p class="normal">在Eclipse中，创建自己的虚拟设备是一个非常简单的过程:</p>
+<blockquote><ol> <li>On the Eclipse main menu bar, select windows Android SDK and AVD manager. An Android SDK and AVD manager screen similar to that shown in <a href="#fig_1_8"> Figure 1-8 </a> opens.</li> <li>因为您没有列出任何设备，点击左上角的新建按钮。弹出一个创建新的Android虚拟设备(AVD)对话框，让你定义新的模拟器，如图<a href="#fig_1_16">图1-16 </a>所示。完成表格如下:<ol style="list-style-type:lower-alpha"> <li>The device name doesn't matter; I chose the original name <b> tablet _ device </b>.</li> <li>Your target Android version is Android 3.0.</li> <li>For most applications, you don't need to worry about the size of SD card. However, if your game requires you to store high scores or other data on the device, please specify the size of the onboard data storage.</li> <li>And the skin and hardware parts do not need to be changed. However, it is worth noting the hardware specifications. When you make graphics for games, you should definitely use the LCD density of 160 (which is quite standard) to determine the resolution of your images. Compared with many tablet computers, the device RAM size of the simulator is actually quite low. However, the simulator cannot accurately represent the capabilities of RAM or processor. In order to truly show how your game will work, you must try it on a real device.</li> </ol> <img src="images/0116.jpg" alt="images"/> <p class="margin"> <a id="page_24"/> <i>图1-16。创建机器人虚拟设备(AVD) </i> </p> </li> <li>Click the Create AVD button, and you can run your application.</li> </ol></blockquote>
+<p class="indent">如果你期待一个模拟器出现，你会失望的；新的虚拟设备仅在您运行应用程序时启动。下一部分启动设备。</p>
+<h4 class="h4"><a id="running_the_app"/>运行应用程序</h4>
+<p class="normal">按照以下快速步骤运行应用程序:</p>
+<blockquote><ol> <li>In the center of the toolbar near the top of the Eclipse screen is a green play button. Click it, and your program will open a big black screen. This is your new simulator. After a while, when it is loaded, the word <i> Android </i> will be displayed on the screen. Then, with the completion of loading, the word <i> Android </i> with larger font scrolls upwards.</li> <li><a id="page_25"/> When the loading screen is finished, move the small round knob to the right. If you wait long enough, the application may start automatically. In this case, the word <i> hello world, Main! </i> appears. If not, please continue to the next step. There is a Google search bar in the upper left corner of the main screen and several buttons at the bottom. Real devices use touch gestures to select applications, but the simulator lets you use the mouse cursor. To run your own program, click the application icon in the upper right corner of the screen.</li> <li>A list of all programs on the device appears. Your application uses the universal Android robot as its icon; The application name (FirstApp) appears below the icon. Click on it, and the screen will soon display Hello World, Main!</li> </ol></blockquote>
+<p class="indent">尽管可能很简单，但您已经启动了您的第一个Android应用程序。当你陶醉其中时，点击左下角指向屏幕左侧的箭头。你回到了桌面家庭。现在尝试模拟器中的其他一些应用程序。您可能会惊讶地发现，浏览器、电子邮件和其他程序的功能与您预期的完全一样。</p>
+<p class="indent">AVD与真实的东西非常相似，甚至允许你测试传感器和GPS数据。要测试这个模拟器的速度，你可以制作你自己的令人难以置信的应用程序。请看下一节，了解如何处理代码。</p>
+<h4 class="h4">对应用程序进行首次更改</h4>
+<p class="normal">尽管从技术上来说，你确实创建了自己的应用程序，但除了自动创建的应用程序之外，你并不需要操作代码。现在是时候改变程序的文本了:</p>
+<blockquote>在<ol>项目的文件夹树中，展开<code>Res</code>文件夹。 <li>Open the <code>values</code> folder. You should find a file (strings.xml) there; Double-click it to display it in the viewing pane.</li> <li>List two string resources. One is the application name, and the other is called <code>hello</code>. Click <code>hello</code> to change the value to any string you want.</li> <li>Save your changes and rerun the program. When you open the FirstApp, you should see that you have changed the text on the screen.</li>T13】</ol></blockquote>
+<p class="indent">要理解这是如何工作的，你需要知道<i>资源</i>的重要Android主题。您刚刚编辑的<code>strings.xml</code>文件是一个资源。大的<code>Res</code>文件夹中的每个文件也是如此。</p>
+<p class="indent">如果你还记得<code>main.java</code>文件，我在代码中提到了一个资源文件:<code>main.xml</code>，在布局部分。您需要对此文件进行一些更改:</p>
+<p class="hangingindent">5.要查看文件，请展开<code>layout</code>文件夹并双击<code>main.xml</code>。出现一个WYSIWYG编辑器，在右上角有一个小屏幕和您创建的字符串。</p>
+<p class="hangingindent">6.不幸的是，屏幕是为手机设计的。您可以使用顶部带有2.7英寸QVGA的菜单快速更改这一点。向下滚动列表，直到到达10.1 WXGA。这就使得屏幕布局十寸多一点，对于平板电脑来说很正常。</p>
+<p class="hangingindent">7 .<a id="page_26"/>。使用编辑器更新布局非常容易。左侧的窗格已经有几个不同的项目可以拖到应用程序上。试着在你写的文字下面放一个按钮。</p>
+<p class="hangingindent">8.尽管WYSIWYG编辑器很方便，但对于制作游戏来说并不是非常有用。您需要进入图像背后的实际文件。要查看这一点，点击<code>main.xml</code>(靠近屏幕底部，图形布局旁边)。</p>
+<p class="indent"><a href="#list_1_2">清单1-2 </a>显示了你在布局中添加一个按钮后应该看到的代码。</p>
+
+<p class="listcaption"><i> <b>清单1-2。</b>T4<code>Main.xml</code></i></p>
+<code>&lt;?xml version="1.0" encoding="utf-8"?&gt;<br/>
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"<br/>
+    android:orientation="vertical"<br/>
+    android:layout_width="fill_parent"<br/>
+    android:layout_height="fill_parent"<br/>
+    android:id="@+id/Button"&gt;<br/>
+&lt;TextView  <br/>
+    android:layout_width="fill_parent" <br/>
+    android:layout_height="wrap_content" <br/>
+    android:text="@string/hello"<br/>
+    /&gt;<br/>
+&lt;Button android:text="Button" <br/>
+        android:id="@+id/button1" <br/>
+        android:layout_width="wrap_content" <br/>
+        android:layout_height="wrap_content"&gt;<br/>
+        &lt;/Button&gt;<br/>
+&lt;/LinearLayout&gt;</code>
+
+<p class="indent">如果您不熟悉XML，那么这可能看起来像希腊语，但实际上非常容易理解。第一行声明了您正在使用的XML类型。下一节创建一个特殊的布局类型，称为<code>LinearLayout</code>。其中，简单的指令告诉设备如何定位应用程序，以及它相对于整个设备屏幕的大小。接下来，一个<code>TextView</code>对象被创建为<code>fill_parent</code>(扩展以适合整个空间)，然后被定义为<code>wrap_content</code>，这将视图限制为仅需要的数量。</p>
+<p class="indent">最后，通过调用名为<code>hello</code>的字符串资源将文本插入到屏幕中。这是您已经编辑过的<code>hello</code>字符串。</p>
+<p class="indent">下一部分是您拖到应用程序上的<code>Button</code>信息。重要的是要记住，XML布局并不创造功能，而仅仅是程序的外观。例如，点击你的按钮不会做任何事情，除非你专门设计了一个响应程序。</p>
+<h3 class="h3"><a id="summary"/>总结</h3>
+<p class="normal">这一章在让你的开发环境启动和运行方面肯定涵盖了很多内容。您讲述了Android背后的概念以及如何创建游戏。在接下来的章节中，你将会彻底地检查布局以及如何为游戏创建一个吸引人的背景。然后你创建精灵，并开始通过在屏幕上移动玩家来给你的应用添加一些味道。后面的章节添加用户输入、声音和人工智能来完成你的创作。</p>
+
+</body>
+</html>
