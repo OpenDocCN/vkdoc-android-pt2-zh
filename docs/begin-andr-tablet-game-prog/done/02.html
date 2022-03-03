@@ -16,18 +16,18 @@
 <p class="normal">精灵是游戏的基础，在你创建游戏之前，你需要能够在屏幕上画出它的卡片、角色和其他物体。在本节中，您将学习Android 3.0图形显示的基本组件。我们还将计算出精灵的组成部分，并在屏幕上移动我们的图像。这将成为我们未来项目的基础。看看<a href="#fig_2_1">图2-1 </a>看看我们的游戏会是什么样子。这个启动精灵实际上是来回跳动的。</p>
 
 
-<img src="images/0201.jpg" alt="images"/>
+<img src="img/0201.jpg" alt="images"/>
 
 
 <p class="fcaption"><a id="page_28"/> <i> <b>图2-1。</b>完成的图形程序。</i></p>
 
-<p class="normal"><img src="images/square.jpg" alt="images"/> <b>注</b>如果你迷路了，从与这本书相连的谷歌代码项目中复制代码。然后回到课程中，你将能够通过操作它的某些方面来理解程序是如何工作的。</p>
+<p class="normal"><img src="img/square.jpg" alt="images"/> <b>注</b>如果你迷路了，从与这本书相连的谷歌代码项目中复制代码。然后回到课程中，你将能够通过操作它的某些方面来理解程序是如何工作的。</p>
 
 <h4 class="h4"><a id="creating_a_image_display_surface"/>创建图像显示表面</h4>
 <p class="normal">要开始，您需要打开一个新的Eclipse项目。在上一章中，您在Eclipse中创建了一个名为FirstApp的新项目。那个代码对你来说已经没用了。从一个全新的项目开始:</p>
-<blockquote><ol> <li>Select File New Project Android Project from the Eclipse main menu.</li>T3出现新建Android项目对话框时，完成它。您可能还记得前面示例中的这个过程，所以您可以随意自己填写表单。<img src="images/0202.jpg" alt="images"/> <p class="margin"> <a id="page_29"/> <i> <b>图2-2。</b>图形测试的项目创建窗口..</i> </p>  <li><a id="page_30"/> Your app name is GraphicsTest. Make sure that the completed form looks like <a href="#fig_2_2"> in Figure 2-2. Getting used to creating new projects in Eclipse is very important, because if something goes wrong, this is usually the easiest way to start from scratch. </a></li> <li>When the form is finished, click Finish. If you need help filling in other fields, please refer to Chapter 1.</li> </ol></blockquote>
+<blockquote><ol> <li>Select File New Project Android Project from the Eclipse main menu.</li>T3出现新建Android项目对话框时，完成它。您可能还记得前面示例中的这个过程，所以您可以随意自己填写表单。<img src="img/0202.jpg" alt="images"/> <p class="margin"> <a id="page_29"/> <i> <b>图2-2。</b>图形测试的项目创建窗口..</i> </p>  <li><a id="page_30"/> Your app name is GraphicsTest. Make sure that the completed form looks like <a href="#fig_2_2"> in Figure 2-2. Getting used to creating new projects in Eclipse is very important, because if something goes wrong, this is usually the easiest way to start from scratch. </a></li> <li>When the form is finished, click Finish. If you need help filling in other fields, please refer to Chapter 1.</li> </ol></blockquote>
 <p class="indent">在平板电脑上显示图像之前，您需要一个画布来渲染图像。您在程序主例程中构建曲面。请遵循以下步骤:</p>
-<blockquote>第一个项目中的文件可能仍在您的主编辑面板中打开。通过右键单击文件选项卡旁边的并选择全部关闭来关闭它们。这不会删除代码，而是关闭显示代码的编辑屏幕。 <li>在Eclipse Package Explorer(位于屏幕左侧)中打开GraphicsTest项目的文件树。您想检查Java代码，所以打开<code>src</code>文件夹，然后继续展开，直到看到<code>MainActivity.java</code>。<a href="#fig_2_3">图2-3 </a>显示了文件的位置。<img src="images/0203.jpg" alt="images"/> <p class="margin"> <i> <b>图2-3。</b>用于图形测试的包资源管理器</i> </p> </li> <li>Open <code>MainActivity.java</code> in the editing pane, and you will see the general code generated in the first chapter. In the first chapter, you use a Java code file and an XML file to handle the layout. Unfortunately, a game with a lot of movements and graphic changes can't be easily built in XML. Therefore, you need a Java file to run the graphics of the game.</li> <li>To this end, right-click <code>com.gameproject.graphicstest</code> in GraphicsTest Package Explorer to create a new class. Select a new category. A dialog box opens <a id="page_31"/>, asking how you want your new class to be named. Type <b> game view </b>, and pay attention to keep the default values of all other fields. When you are finished, you will find two files (<code>MainActivity</code> and <code>GameView</code>) in your <code>src</code> directory.</li> <li>Open the <code>GameView.java</code> file in the viewing pane. You should find the code in Listing 2-1 there.</li> </blockquote>
+<blockquote>第一个项目中的文件可能仍在您的主编辑面板中打开。通过右键单击文件选项卡旁边的并选择全部关闭来关闭它们。这不会删除代码，而是关闭显示代码的编辑屏幕。 <li>在Eclipse Package Explorer(位于屏幕左侧)中打开GraphicsTest项目的文件树。您想检查Java代码，所以打开<code>src</code>文件夹，然后继续展开，直到看到<code>MainActivity.java</code>。<a href="#fig_2_3">图2-3 </a>显示了文件的位置。<img src="img/0203.jpg" alt="images"/> <p class="margin"> <i> <b>图2-3。</b>用于图形测试的包资源管理器</i> </p> </li> <li>Open <code>MainActivity.java</code> in the editing pane, and you will see the general code generated in the first chapter. In the first chapter, you use a Java code file and an XML file to handle the layout. Unfortunately, a game with a lot of movements and graphic changes can't be easily built in XML. Therefore, you need a Java file to run the graphics of the game.</li> <li>To this end, right-click <code>com.gameproject.graphicstest</code> in GraphicsTest Package Explorer to create a new class. Select a new category. A dialog box opens <a id="page_31"/>, asking how you want your new class to be named. Type <b> game view </b>, and pay attention to keep the default values of all other fields. When you are finished, you will find two files (<code>MainActivity</code> and <code>GameView</code>) in your <code>src</code> directory.</li> <li>Open the <code>GameView.java</code> file in the viewing pane. You should find the code in Listing 2-1 there.</li> </blockquote>
 
 <p class="listcaption"><i> <b>清单2-1。</b>T4<code>GameView.java</code></i></p>
 <code>package com.gameproject.graphicstest;<br/>
@@ -44,7 +44,7 @@ public class GameView {<br/>
 <p class="indent"><code>View</code>类的下一个关键部分是将图像呈现到屏幕上的方法。每次移动图像时都会调用这个函数，因为图像必须在新的位置重新绘制。</p>
 <p class="indent">尽管这是一种抽象的查看类的方式，但它有助于您理解代码。然而，在深入研究之前，让我们来看看实际获取一个文件并将其显示在屏幕上的机制。</p>
 
-<p class="normal"><img src="images/square.jpg" alt="images"/> <b>提示</b>如果你对<code>View</code>类或任何其他Android类感到好奇，访问<code><a href="http://developer.android.com/reference/packages.html">http://developer.android.com/reference/packages.html</a></code>并找到你正在寻找的包。在这里，Android提供了关于如何使用这些类以及每个类包含的各种方法的文档。</p>
+<p class="normal"><img src="img/square.jpg" alt="images"/> <b>提示</b>如果你对<code>View</code>类或任何其他Android类感到好奇，访问<code><a href="http://developer.android.com/reference/packages.html">http://developer.android.com/reference/packages.html</a></code>并找到你正在寻找的包。在这里，Android提供了关于如何使用这些类以及每个类包含的各种方法的文档。</p>
 
 <h5 class="h5">Android如何渲染图像</h5>
 <p class="normal"><code>View</code>类只是将图像呈现到屏幕上的整个方法的一部分。其他构建块包括图像、存储图像的方式、绘制图像的方法以及屏幕上的最终结果。</p>
@@ -163,7 +163,7 @@ public class GameView extends SurfaceView implements<br/>
 <p class="normal">要运行好游戏，你需要利用Java的<code>Thread</code>类的能力。如果你用现代语言编程过，你可能以前遇到过线程。一个<i>线程</i>是设备执行的独立例程。在所谓的<i>多线程</i>中，线程几乎总是与其他线程一起使用。这基本上意味着线程是自主存在的，并且通常由一个程序同时运行以执行不同的功能。一个例子是在一个线程中运行游戏的图形，而在另一个线程中处理物理。显然，这两件事必须同时发生，所以你多线程的程序。</p>
 <p class="indent">要构建Android游戏，您需要使用Java <code>Thread</code>类。您可以在<code>Java.lang.Thread</code>中找到<code>Thread</code>类的源代码。您不必导入它，因为假设它是可用的；然而，记住这是您正在使用的类是很重要的。对于您的目的来说，线程非常简单。你创建一个扩展<code>Thread</code>的类，然后你覆盖<code>run</code>方法，把你的游戏循环放在那里。从那里，您可以改变视图或处理碰撞或收集输入。</p>
 <p class="indent">既然您已经看到了我们在<code>GameView</code>中所做的更改，让我们创建<code>Thread</code>类的所有重要扩展:</p>
-<blockquote><ol> <li>在Eclipse中新建一个类，命名为<code>GameLogic</code>。因为<code>GameView.java</code>处理游戏的外观，所以<code>GameLogic.java</code>处理幕后的计算才是合适的。<p class="normal"> <img src="images/square.jpg" alt="images"/> <b>提示</b>当你创建越来越多的源代码文件时,给类起一个非常具体的名字会很有帮助。如果你的游戏包含不同类型的精灵或物体,不要给类标上<code>SpriteOne</code>、<code>SpriteTwo</code>等等。我总是试图根据一个类的确切功能来命名它,比如<code>EnemySprite</code>或者<code>FlyingSprite</code>.</p> </li> <li><a href="#list_2_5"> Listing 2-5 </a> shows the entire listing of <code>GameLogic.java</code>. Similar to the implementation of your <code>SurfaceView</code> class, the current code is spartan. Copy the code in <a href="#list_2_5"> Listing 2-5 </a> and replace the original code in <code>GameLogic</code>.</li>T24】</ol></blockquote>
+<blockquote><ol> <li>在Eclipse中新建一个类，命名为<code>GameLogic</code>。因为<code>GameView.java</code>处理游戏的外观，所以<code>GameLogic.java</code>处理幕后的计算才是合适的。<p class="normal"> <img src="img/square.jpg" alt="images"/> <b>提示</b>当你创建越来越多的源代码文件时,给类起一个非常具体的名字会很有帮助。如果你的游戏包含不同类型的精灵或物体,不要给类标上<code>SpriteOne</code>、<code>SpriteTwo</code>等等。我总是试图根据一个类的确切功能来命名它,比如<code>EnemySprite</code>或者<code>FlyingSprite</code>.</p> </li> <li><a href="#list_2_5"> Listing 2-5 </a> shows the entire listing of <code>GameLogic.java</code>. Similar to the implementation of your <code>SurfaceView</code> class, the current code is spartan. Copy the code in <a href="#list_2_5"> Listing 2-5 </a> and replace the original code in <code>GameLogic</code>.</li>T24】</ol></blockquote>
 
 <p class="listcaption"><a id="page_37"/> <i> <b>清单2-5。</b><code>GameLogic.java</code>T5】</i></p>
 <code>package com.gameproject.graphicstest;<br/>
@@ -310,7 +310,7 @@ public void update() {<br/>
         sprite.update();<br/>
 }</code></li><li>The <code>onDraw</code> method gets sprite to draw itself, and then the <code>update</code> function lets sprite execute its <code>update</code> function. Separating the <code>update</code> method from the <code>GameView</code> method reduces the confusion within the class. Whenever a specific task must be executed, complete it in a separate function to keep your main code clean and tidy. All your code is ready and the game can be executed now. Make sure that all Java source codes are saved, and then click the green Eclipse play button to start the simulator.</li>T74】</ol></blockquote>
 
-<p class="normal"><img src="images/square.jpg" alt="images"/> <b>注意</b>如果您收到找不到类的错误消息，您可能已经在不同的文件夹中创建了Java文件。在左窗格的文件树中，确保所有四个文件都在<code>src</code>文件夹中。</p>
+<p class="normal"><img src="img/square.jpg" alt="images"/> <b>注意</b>如果您收到找不到类的错误消息，您可能已经在不同的文件夹中创建了Java文件。在左窗格的文件树中，确保所有四个文件都在<code>src</code>文件夹中。</p>
 
 <p class="indent">如果一切顺利，您应该会看到图像从左上角到右下角快速穿过屏幕。正如你之前注意到的，根据运行该程序的计算机或设备，精灵可能会快速或缓慢地移动。有了控制精灵移动的能力，你可以改变<code>x_move</code>和<code>y_move</code>的值来加速或减速。接下来的部分是清理用户界面，为一些激烈的游戏做准备。</p>
 <h3 class="h3">获得专业形象</h3>
@@ -337,7 +337,7 @@ public void update() {<br/>
 
 <p class="indent">如果你真的对保护你的作品感兴趣，你可以在许可下发布代码。例如，Android代码本身是在Apache License Version 2.0下发布的，这非常自由，允许用户将代码主要用于他们可以想象的任何项目。如果你在网上发布你的代码，准备好在一个许可下提供它，保持它的开源，让其他人在上面开发。</p>
 
-<p class="normal"><img src="images/square.jpg" alt="images"/>提示关于知识共享许可和开源项目如何工作的更多信息，请访问<code><a href="http://creativecommons.org/">http://creativecommons.org/</a></code>。</p>
+<p class="normal"><img src="img/square.jpg" alt="images"/>提示关于知识共享许可和开源项目如何工作的更多信息，请访问<code><a href="http://creativecommons.org/">http://creativecommons.org/</a></code>。</p>
 
 <h3 class="h3"><a id="implementing_timing_and_complex_motion"/>实现定时和复杂运动</h3>
 <p class="normal">现在，您可以继续创建一个系统，使您能够准确地设置游戏运行的速度。游戏循环将不再受制于设备的突发奇想。要做到这一点，你可以使用一个计时器，然后根据经过的时间调整移动。这意味着，如果一个周期花费很长时间，而另一个周期花费很短时间，精灵将根据该值移动一定的距离。查看代码是理解这种方法的最好方式。请遵循以下步骤:</p>
@@ -359,7 +359,7 @@ this.mGameView.onDraw(canvas);        </code> </li> <li>At first, the wh
 }</code> </li> <li>In this case, the sprite <code>update</code> method multiplies <code>x_move</code> and <code>y_move</code> by the change of time. I changed the speed constant to <code>1</code> in order to keep the movement at a reasonable speed. This makes sense, because if the calculation takes a long time, the movement will be multiplied by a larger number. If the processing speed is fast, the wizard won't move that far. The idea of controlling the number of frames per second in a game has many meanings, which you can use in future projects.</li>T73】</ol></blockquote>
 <p class="indent">虽然你可能会想象大多数游戏都想要有时间元素，但是许多应用程序可以不用担心这个问题。想想象棋或井字游戏。在回合制游戏中，时机不是一个重要的方面。</p>
 
-<p class="normal"><img src="images/square.jpg" alt="images"/> <b>注意</b>示例程序可从Android的参考指南中获得，你可以从不同类型的游戏中寻找灵感。查看该页面的代码源:<code><a href="http://developer.android.com/resources/browser.html?tag=sample">http://developer.android.com/resources/browser.html?tag=sample</a></code>。需要注意的是，大多数程序是为早期版本的Android编写的，比如2.2或2.3。如果您真的对示例感兴趣，您可能想创建一个特定于该版本的仿真器。将它们移植到Android 3.0并不困难；你可以通过放大图片和屏幕尺寸来实现。</p>
+<p class="normal"><img src="img/square.jpg" alt="images"/> <b>注意</b>示例程序可从Android的参考指南中获得，你可以从不同类型的游戏中寻找灵感。查看该页面的代码源:<code><a href="http://developer.android.com/resources/browser.html?tag=sample">http://developer.android.com/resources/browser.html?tag=sample</a></code>。需要注意的是，大多数程序是为早期版本的Android编写的，比如2.2或2.3。如果您真的对示例感兴趣，您可能想创建一个特定于该版本的仿真器。将它们移植到Android 3.0并不困难；你可以通过放大图片和屏幕尺寸来实现。</p>
 
 <h3 class="h3"><a id="detecting_collisions"/>检测碰撞</h3>
 <p class="normal">虽然你没有收集用户的输入，但你可以通过处理与平板电脑墙壁的简单碰撞来给游戏注入一定的响应能力。清单2-16 中显示了一个快速简单的实现。</p>
@@ -386,7 +386,7 @@ public void setMoveY(int movey){<br/>
 <p class="indent">在你运行这个程序之前，我手动将<code>y_move</code>改为0，这样你就可以消除任何上下移动。当你播放程序时，精灵会在屏幕的左右两边来回跳动。不过，这个运动应该有些奇怪:当精灵到达屏幕的最右侧时，它几乎消失了，因为你在精灵的位置上引用了你的碰撞，这是由其中心给出的。您可以通过考虑精灵的实际大小和尺寸来消除任何消失。</p>
 <p class="indent">如果你想试验必要的改变，继续操作<code>if</code>语句来反映精灵的绝对左和绝对右。<a href="07.html#ch7">第7章</a>深入讨论碰撞；您使用<code>RECT</code>元素来精确地找到不同精灵和墙壁或地板之间的交叉点。</p>
 
-<p class="normal"><img src="images/square.jpg" alt="images"/> <b>注意</b>碰撞检测几乎是任何游戏的一个重要方面，有多种方法可以实现。当您稍后想要使用项目符号或其他不规则形状时，您可以使用各种多边形来寻找精灵的交集。快速搜索<i>不规则碰撞检测</i>会产生大量信息来继续这个话题。</p>
+<p class="normal"><img src="img/square.jpg" alt="images"/> <b>注意</b>碰撞检测几乎是任何游戏的一个重要方面，有多种方法可以实现。当您稍后想要使用项目符号或其他不规则形状时，您可以使用各种多边形来寻找精灵的交集。快速搜索<i>不规则碰撞检测</i>会产生大量信息来继续这个话题。</p>
 
 <h3 class="h3"><a id="summary1"/>总结</h3>
 <p class="normal">这一章讲述了渲染图像的方法，你制作了一个框架来管理精灵并以一致的速度在屏幕上移动它们。通过这项工作，大多数游戏应该可以在你当前的系统上运行。在接下来的几章中，添加用户输入和声音将使高质量的游戏成为可能。当您使用OpenGL来加速复杂游戏的图形并向您的<code>Sprite</code>类添加动画框架时，您将在稍后处理高级图形主题。所有这些代码都是以可重用和适用于任何数量的游戏为目标而编写的。</p>
