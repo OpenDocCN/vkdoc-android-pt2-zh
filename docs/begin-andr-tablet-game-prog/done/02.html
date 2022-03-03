@@ -38,8 +38,8 @@ public class GameView {<br/>
 
 <p class="indent">您可以添加到这个原始源代码中，将图像文件绘制到屏幕上。但是，在开始之前，您必须了解Android中视图和显示的基础知识。</p>
 <h5 class="h5">Android视图类是如何工作的</h5>
-<p class="normal">到目前为止，您只在项目中使用了两个Android类:<code>Activity</code>和<code>Bundle</code>。活动包含处理应用程序的创建、运行和关闭的功能。它们是任何安卓游戏的命脉。<code>Bundle</code>类仅仅是保存程序当前状态的一种方法。</p>
-<p class="indent">然而，现在你看看<code>View</code>类。应用程序运行时，视图处理屏幕的图形和外观。你所有的游戏都将创建一个类来扩展<code>View</code>类并给你这个功能。通常，你的<code>View</code>类中的代码比<code>Activity</code>类中的多得多，因为游戏的大部分内容都是操纵屏幕上的对象。</p>
+<p class="normal">到目前为止，您只在项目中使用了两个Android类:<code>Activity</code>和<code>Bundle</code>。活动包含处理应用的创建、运行和关闭的功能。它们是任何安卓游戏的命脉。<code>Bundle</code>类仅仅是保存程序当前状态的一种方法。</p>
+<p class="indent">然而，现在你看看<code>View</code>类。应用运行时，视图处理屏幕的图形和外观。你所有的游戏都将创建一个类来扩展<code>View</code>类并给你这个功能。通常，你的<code>View</code>类中的代码比<code>Activity</code>类中的多得多，因为游戏的大部分内容都是操纵屏幕上的对象。</p>
 <p class="indent">所有函数类必须有两个不同的部分。第一个是构造函数方法。像任何类一样，当您创建它的实例时，您需要调用一个函数来定义对象的各个方面。在<code>View</code>类中，你可以加载你的图像并决定所有精灵的起始位置。</p>
 <p class="indent"><code>View</code>类的下一个关键部分是将图像呈现到屏幕上的方法。每次移动图像时都会调用这个函数，因为图像必须在新的位置重新绘制。</p>
 <p class="indent">尽管这是一种抽象的查看类的方式，但它有助于您理解代码。然而，在深入研究之前，让我们来看看实际获取一个文件并将其显示在屏幕上的机制。</p>
@@ -48,7 +48,7 @@ public class GameView {<br/>
 
 <h5 class="h5">Android如何渲染图像</h5>
 <p class="normal"><code>View</code>类只是将图像呈现到屏幕上的整个方法的一部分。其他构建块包括图像、存储图像的方式、绘制图像的方法以及屏幕上的最终结果。</p>
-<p class="indent"><a id="page_32"/>图像存储在项目中。下一节将介绍如何添加图像。一旦图像存储在应用程序中，你就可以通过将它分配给一个<i>位图</i>来访问它。位图是你描述图像的一种方式，并准备好将其传送到屏幕上。</p>
+<p class="indent"><a id="page_32"/>图像存储在项目中。下一节将介绍如何添加图像。一旦图像存储在应用中，你就可以通过将它分配给一个<i>位图</i>来访问它。位图是你描述图像的一种方式，并准备好将其传送到屏幕上。</p>
 <p class="indent">在显示之前，必须通过<i>画布</i>进行渲染。画布包含绘制图像的方法。在视图内部，您调用画布来处理绘制过程。<i>视图</i>是他们控制的屏幕的指定部分。在您的例子中，视图拥有整个屏幕。然后画布将图像绘制到屏幕上。</p>
 <h4 class="h4"><a id="rendering_an_image"/>渲染一幅图像</h4>
 <p class="indent">为了真正理解Android中的<code>View</code>类是如何工作的，让我们用它来显示一个图像:</p>
@@ -90,15 +90,15 @@ class GameView extends View {<br/>
 <li>最后，源代码的核心是处理屏幕变化的<code>onDraw</code>方法。您使用<code>@Override</code>符号来运行您自己版本的<code>onDraw</code>函数，而不是由<code>View</code>类提供的原始<code>onDraw()</code>。该方法的参数包括非常重要的负责图像绘制的<code>Canvas</code>。下一行简单地创建了一个新的<code>Bitmap</code>对象，并将您的图像文件上传到其中。因为我使用的图像文件被命名为<code>star.png</code>，我将它的位图命名为<code>star</code>。在这段代码中你看到的三个地方替换你的图片的名字。或者，您可以重命名您的图像<code>star.png</code>，而根本不需要更改代码。</li>
 <li>接下来，你让<code>Canvas</code>对象将整个屏幕涂成黑色。这是多余的，因为黑色是默认的，但保持这条线是一个好习惯。如果您喜欢不同的背景颜色，请用您的颜色名称替换<code>black</code>。注意，Android接受大部分传统的颜色名称；但是如果你正在寻找一种特定的粉红色，你必须写出RGB值，如下面的语句所示:<code>canvas.drawColor(Color.argb(0, 100, 100, 100));</code></li>
 <li><code>argb</code>函数将alpha、红色、绿色和蓝色的数量作为整数形式的参数。</li>
-<li>清单2-2 的最后一行调用<code>drawBitmap</code>方法将图像绘制到屏幕上。注意这个函数的参数是<code>(Bitmap bitmap, float left, float top, Paint paint</code>。您不使用<code>Paint</code>对象，所以您传递一个<code>null</code>值给它。您可以通过编辑图像从顶部和左侧的距离值来更改图像的位置<code>n</code>。在这之后，你想看到你的劳动成果。虽然您有办法将图像呈现到<a id="page_34"/>屏幕上，但是您的应用程序永远不会使用它，因为程序的开始没有调用drawing方法。您可以通过在<code>MainActivity</code>中创建一个<code>GameView</code>的实例来改变这一点。要做到这一点，您必须在<code>MainActivity.java</code>文件中更改一行来指向您的<code>GameView</code>类。</li>
+<li>清单2-2 的最后一行调用<code>drawBitmap</code>方法将图像绘制到屏幕上。注意这个函数的参数是<code>(Bitmap bitmap, float left, float top, Paint paint</code>。您不使用<code>Paint</code>对象，所以您传递一个<code>null</code>值给它。您可以通过编辑图像从顶部和左侧的距离值来更改图像的位置<code>n</code>。在这之后，你想看到你的劳动成果。虽然您有办法将图像呈现到<a id="page_34"/>屏幕上，但是您的应用永远不会使用它，因为程序的开始没有调用drawing方法。您可以通过在<code>MainActivity</code>中创建一个<code>GameView</code>的实例来改变这一点。要做到这一点，您必须在<code>MainActivity.java</code>文件中更改一行来指向您的<code>GameView</code>类。</li>
 <li>在Eclipse的顶部，打开<code>MainActivity.java</code>文件。找到类似这样的行:<code>setContentView(R.layout.main);</code></li>
 <li>You likely remember this as the line that tells the device to load the <code>main.xml</code> file as the layout of the app. You want to replace that XML with <code>GameView.java</code>. This is readily done by adding the statement in <a href="#list_2_3">Listing 2-3</a> inside the MainActivity constructor.
 
 <p class="listcaption1"><i> <b>清单2-3。</b>使用<code>GameView.java</code>作为视图</i></p>
 <code>setContentView(new GameView(this));</code>
 </li>
-<li>这个语句的添加创建了一个<code>GameView</code>类的新实例，并将其作为应用程序的视图加载。你现在可以开始尝试你的作品了。</li>
-<li>单击Eclipse顶部的绿色play按钮，应用程序启动。当模拟器已经开始播放新的应用程序时，请遵循第1章中的步骤。如果一切顺利，你的图像(最初是一个<code>.png</code>文件)会在屏幕上生动地显示出来。</li>
+<li>这个语句的添加创建了一个<code>GameView</code>类的新实例，并将其作为应用的视图加载。你现在可以开始尝试你的作品了。</li>
+<li>单击Eclipse顶部的绿色play按钮，应用启动。当模拟器已经开始播放新的应用时，请遵循第1章中的步骤。如果一切顺利，你的图像(最初是一个<code>.png</code>文件)会在屏幕上生动地显示出来。</li>
 
 </blockquote>
 <p class="indent">这个结果肯定不是很令人兴奋，所以你的下一个目标是移动屏幕上的图像。</p>
@@ -292,12 +292,12 @@ public class SpriteObject {<br/>
 
 <p class="indent">这个类的最后两个方法——<code>draw()</code>和<code>update()</code>——是最有趣的。在<code>GameLogic.java</code>中从游戏循环中调用<code>draw</code>功能。在将图像渲染到屏幕上之前，使用<code>update</code>操作来增加x和y坐标。请注意，您可以通过手动改变变量来改变移动速度，或者您可以创建函数，让您根据碰撞或用户输入等事件来改变精灵的速度。</p>
 <h4 class="h4"><a id="running_a_game"/>运行游戏</h4>
-<p class="normal">通过对你的<code>GameView</code>类做一些快速的修正，你可以拥有一个完整的应用程序，它将你的精灵投射到屏幕上。首要任务是在<code>GameView</code>中创建<code>GameLogic</code>和<code>SpriteObject</code>类的实例，这样您就可以利用新创建的类了:</p>
+<p class="normal">通过对你的<code>GameView</code>类做一些快速的修正，你可以拥有一个完整的应用，它将你的精灵投射到屏幕上。首要任务是在<code>GameView</code>中创建<code>GameLogic</code>和<code>SpriteObject</code>类的实例，这样您就可以利用新创建的类了:</p>
 <blockquote><ol> <li>Open the <code>GameView</code> class so that you can add some code to it.</li> <li>将你的类的两个实例(如<a href="#list_2_7">清单2-7 </a>所示)放在<code>GameView</code>构造函数之前。<p class="listcaption1">T31<b>清单2-7。</b>创建你的类的实例 </p> <code>private SpriteObject sprite;<br/>
 private GameLogic mGameLogic;</code> </li> <li>在<code>GameView</code>类里面，你调用两个类的构造函数。然而，要格外注意论点的结构。最后一行让您能够使用设备。将清单2-8 中的代码添加到<code>GameView</code>构造函数中。<p class="listcaption1"> <i> <b>清单2-8。</b>构造新的类</i> </p> <code>sprite = new SpriteObject(BitmapFactory.decodeResource(getResources(), R.drawable.star), 50,<br/>
 50);<br/>
 mGameLogic = new GameLogic(getHolder(), this);<br/>
-getHolder().addCallback(this);</code> </li> <li><code>SpriteObject</code> Take the coordinates of bitmap and sprite. The method of obtaining bitmap resources is the same as what you did in the first example of this chapter. <code>GameLogic</code> Take a <code>SurfaceHolder</code> and a <code>GameView</code>. The function <code>getHolder()</code> is a part of the <code>SurfaceView</code> class, which allows you to send the current holder to the method.</li> <li>现在你可以利用<code>surfaceCreated</code>函数中的新对象了。清单2-9 显示了应用程序一创建表面就开始游戏循环的代码。<p class="listcaption1">T53<i>T55】清单2-9。开始游戏循环</i> </p> <code>@Override<br/>
+getHolder().addCallback(this);</code> </li> <li><code>SpriteObject</code> Take the coordinates of bitmap and sprite. The method of obtaining bitmap resources is the same as what you did in the first example of this chapter. <code>GameLogic</code> Take a <code>SurfaceHolder</code> and a <code>GameView</code>. The function <code>getHolder()</code> is a part of the <code>SurfaceView</code> class, which allows you to send the current holder to the method.</li> <li>现在你可以利用<code>surfaceCreated</code>函数中的新对象了。清单2-9 显示了应用一创建表面就开始游戏循环的代码。<p class="listcaption1">T53<i>T55】清单2-9。开始游戏循环</i> </p> <code>@Override<br/>
 public void surfaceCreated(SurfaceHolder holder) {<br/>
         mGameLogic.setGameState(GameLogic.RUNNING);<br/>
         mGameLogic.start();<br/>
@@ -319,7 +319,7 @@ public void update() {<br/>
 <p class="listcaption"><i> <b>清单2-11。</b>移除动作条</i></p>
 <code>getActionBar().hide();</code>
 
-<p class="indent">如果你现在运行这个项目，带有Android机器人图标的顶栏就会消失。图像应该正常地在屏幕上移动。为了让你的游戏看起来更专业，你可以把默认图标改成更适合你游戏的图标。当玩家想要打开你的游戏时，他们会进入他们的主页并选择应用程序。提供一个充满活力的图标来吸引他们的注意力是很重要的。</p>
+<p class="indent">如果你现在运行这个项目，带有Android机器人图标的顶栏就会消失。图像应该正常地在屏幕上移动。为了让你的游戏看起来更专业，你可以把默认图标改成更适合你游戏的图标。当玩家想要打开你的游戏时，他们会进入他们的主页并选择应用。提供一个充满活力的图标来吸引他们的注意力是很重要的。</p>
 <p class="indent">在创建你自己的图标之前，记下图标的尺寸。你需要有72 × 72，48 × 48，32 × 32的版本。在您的图形编辑器中，创建一个最大尺寸的图标，然后将其缩小以显示其他尺寸。当你有了这三个文件后，将它们命名为<code>icon.png</code>，并替换<code>res</code>文件夹下每个分辨率类别中的其他图标文件。</p>
 <p class="indent">现在，唯一要做的工作就是在你的代码上加一个头文件，就像清单2-12 中所示的那样，这样你就可以发布你的游戏，而不用担心别人在不认可你的情况下拿走你的作品。诚然，网上发布的任何东西都可能被不当使用，但是在你的作品上签名可以帮助人们向你提问，或者至少在该表扬的地方给予表扬。</p>
 
@@ -357,7 +357,7 @@ this.mGameView.onDraw(canvas);        </code> </li> <li>At first, the wh
         }</code> </li> <li> <a href="#list_2_15">清单2-15 </a>显示了<code>adj_mov</code>变量被传递给精灵，以便它被合并到运动中。<p class="listcaption1"> <i> <b>清单2-15。</b>的<code>SpriteObject.java</code>与修改后的<code>update</code>功能</i> </p> <code>public void update(int adj_mov) {<br/></code> <code><a id="page_44"/>                x += (adj_mov * x_move);<br/>
                 y += (adj_mov * y_move);<br/>
 }</code> </li> <li>In this case, the sprite <code>update</code> method multiplies <code>x_move</code> and <code>y_move</code> by the change of time. I changed the speed constant to <code>1</code> in order to keep the movement at a reasonable speed. This makes sense, because if the calculation takes a long time, the movement will be multiplied by a larger number. If the processing speed is fast, the wizard won't move that far. The idea of controlling the number of frames per second in a game has many meanings, which you can use in future projects.</li>T73】</ol></blockquote>
-<p class="indent">虽然你可能会想象大多数游戏都想要有时间元素，但是许多应用程序可以不用担心这个问题。想想象棋或井字游戏。在回合制游戏中，时机不是一个重要的方面。</p>
+<p class="indent">虽然你可能会想象大多数游戏都想要有时间元素，但是许多应用可以不用担心这个问题。想想象棋或井字游戏。在回合制游戏中，时机不是一个重要的方面。</p>
 
 <p class="normal"><img src="img/square.jpg" alt="images"/> <b>注意</b>示例程序可从Android的参考指南中获得，你可以从不同类型的游戏中寻找灵感。查看该页面的代码源:<code><a href="http://developer.android.com/resources/browser.html?tag=sample">http://developer.android.com/resources/browser.html?tag=sample</a></code>。需要注意的是，大多数程序是为早期版本的Android编写的，比如2.2或2.3。如果您真的对示例感兴趣，您可能想创建一个特定于该版本的仿真器。将它们移植到Android 3.0并不困难；你可以通过放大图片和屏幕尺寸来实现。</p>
 
